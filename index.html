@@ -31,21 +31,21 @@
   <style>
     .card-shadow { box-shadow: 0 10px 25px rgba(0,0,0,.08); }
     .project-card {
-        border-radius: 1rem;
-        border: 1px solid #374151;
-        background-color: #1a1a1a;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
+      border-radius: 1rem;
+      border: 1px solid #374151;
+      background-color: #1a1a1a;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
     }
     .project-card:hover {
-        background-color: #ff7a00;
-        color: #0d0d0d;
+      background-color: #ff7a00;
+      color: #0d0d0d;
     }
     .project-card:hover .project-title,
     .project-card:hover .project-tech,
     .project-card:hover .project-link {
-        color: #0d0d0d;
+      color: #0d0d0d;
     }
     .skill-card {
       transition: all 0.3s ease-in-out;
@@ -55,37 +55,39 @@
       box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4);
     }
     .nav-icon {
-        width: 1.25rem;
-        height: 1.25rem;
-        fill: currentColor;
-        transition: all 0.3s ease-in-out; 
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: currentColor;
+      transition: all 0.3s ease-in-out; 
     }
     .nav-icon:hover {
-        transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    .new-project-card:hover .new-project-title,
+    .new-project-card:hover .new-project-tech {
+        color: #0d0d0d;
     }
   </style>
 </head>
 <body class="font-sans bg-darkbg text-lightgray selection:bg-primary/60 selection:text-darkbg">
 
-  <!-- Navbar -->
   <header class="sticky top-0 z-50 border-b border-[#333] backdrop-blur supports-[backdrop-filter]:bg-darkpanel/70">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
       <div class="flex items-center gap-4 hidden md:flex">
         <a href="https://github.com/lucaspaupie" target="_blank" aria-label="GitHub">
-          <svg class="nav-icon text-gray-400 hover:text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3.3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-4.9c-2.6-1-5.6 0-6.2 2zm-12.7-5.4c-.6 2.1-2.9 3.4-5.9 2.6-2.9-.8-4.7-2.9-4-5s2.9-3.4 5.9-2.6c2.9.9 4.7 3 4 5.1zM79.8 322.3c-1.3 2.1-5.2 3.3-7.5 1.8-2.3-1.5-3.1-3.9-1.9-6s5.2-3.3 7.5-1.8c2.3 1.5 3.1 3.9 1.9 6zM85.6 352c-1.7 2.4-5.5 1.5-7.8-.9-2.2-2.4-2.2-5.7-.3-8.2s5.5-1.5 7.8.9c2.2 2.4 2.2 5.7.3 8.2zm9.1-48.3c-2.9 2.1-6.9.8-8.7-2.1-1.8-2.9-.5-6.8 2.3-8.9 2.9-2.1 6.9-.8 8.7 2.1 1.8 2.9.5 6.8-2.3 8.9zM104.3 31.8c-2.9-2.1-6.9.8-8.7-2.1-1.8-2.9-.5-6.8 2.3-8.9 2.9-2.1 6.9-.8 8.7 2.1 1.8 2.9.5 6.8-2.3 8.9zM103.3 40c-2.2 2.4-2.2 5.7-.3 8.2s5.5 1.5 7.8-.9c2.2-2.4 2.2-5.7.3-8.2-2.2-2.4-5.5-1.5-7.8.9zM128.5 25.1c-2.3-1.5-3.1-3.9-1.9-6s5.2-3.3 7.5-1.8c2.3 1.5 3.1 3.9 1.9 6s-5.2 3.3-7.5 1.8zM248.5 450.4c-5.4 5.4-8.1 12.7-8.1 20.3 0 7.6 2.7 15 8.1 20.3 5.4 5.4 12.8 8.1 20.3 8.1 7.6 0 15-2.7 20.3-8.1 5.4-5.4 8.1-12.8 8.1-20.3 0-7.6-2.7-15-8.1-20.3-5.4-5.4-12.8-8.1-20.3-8.1-7.5 0-14.9 2.7-20.3 8.1zM292.1 430.7c-2.9 2.9-4.5 6.8-4.5 10.7 0 3.9 1.6 7.8 4.5 10.7 2.9 2.9 6.8 4.5 10.7 4.5 3.9 0 7.8-1.6 10.7-4.5 2.9-2.9 4.5-6.8 4.5-10.7 0-3.9-1.6-7.8-4.5-10.7-2.9-2.9-6.8-4.5-10.7-4.5-3.9 0-7.8 1.6-10.7 4.5zM229.5 191.4c-4.9 2.8-8 8.3-8 14.4V240.2c0 6.1 3.1 11.6 8 14.4 4.9 2.8 10.6 2.8 15.5 0 4.9-2.8 8-8.3 8-14.4v-34.4c0-6.1-3.1-11.6-8-14.4-4.9-2.8-10.6-2.8-15.5 0zm19.5 25.1c-1.6 1.6-4.1 1.6-5.7 0-1.6-1.6-1.6-4.1 0-5.7 1.6-1.6 4.1-1.6 5.7 0 1.6 1.6 1.6 4.1 0 5.7zM343.8 221.7c-.5 0-1 0-1.5 0-3.5 0-6.9-.9-9.9-2.7-5.9-3.5-9.6-9.9-9.6-17.1V169c0-7.2 3.7-13.6 9.6-17.1 3-1.8 6.4-2.7 9.9-2.7.5 0 1 0 1.5 0 3.5 0 6.9.9 9.9 2.7 5.9 3.5 9.6 9.9 9.6 17.1v32.9c0 7.2-3.7 13.6-9.6 17.1-3 1.8-6.4 2.7-9.9 2.7zm-11.4-46.6c-1.6 1.6-4.1 1.6-5.7 0-1.6-1.6-1.6-4.1 0-5.7 1.6-1.6 4.1-1.6 5.7 0 1.6 1.6 1.6 4.1 0 5.7zM366.5 142.3c2.6 1.7 5.6 2.6 8.7 2.6 3 0 5.9-1 8.3-2.9 4.8-3.7 7.7-9.3 7.7-15.6 0-6.2-2.9-11.8-7.7-15.6-2.4-1.9-5.3-2.9-8.3-2.9-3.1 0-6.1.9-8.7 2.6-4.8 3.7-7.7 9.3-7.7 15.6s2.9 11.9 7.7 15.8zM248.5 450.4c-5.4 5.4-8.1 12.7-8.1 20.3 0 7.6 2.7 15 8.1 20.3 5.4 5.4 12.8 8.1 20.3 8.1 7.6 0 15-2.7 20.3-8.1 5.4-5.4 8.1-12.8 8.1-20.3 0-7.6-2.7-15-8.1-20.3-5.4-5.4-12.8-8.1-20.3-8.1-7.5 0-14.9 2.7-20.3 8.1zM292.1 430.7c-2.9 2.9-4.5 6.8-4.5 10.7 0 3.9 1.6 7.8 4.5 10.7 2.9 2.9 6.8 4.5 10.7 4.5 3.9 0 7.8-1.6 10.7-4.5 2.9-2.9 4.5-6.8 4.5-10.7 0-3.9-1.6-7.8-4.5-10.7-2.9-2.9-6.8-4.5-10.7-4.5-3.9 0-7.8 1.6-10.7 4.5z" /></svg> <!-- esto lo hice con chatgpt para que quede mejor que una imagen -->
+          <svg class="nav-icon text-gray-400 hover:text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3.3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-4.9c-2.6-1-5.6 0-6.2 2zm-12.7-5.4c-.6 2.1-2.9 3.4-5.9 2.6-2.9-.8-4.7-2.9-4-5s2.9-3.4 5.9-2.6c2.9.9 4.7 3 4 5.1zM79.8 322.3c-1.3 2.1-5.2 3.3-7.5 1.8-2.3-1.5-3.1-3.9-1.9-6s5.2-3.3 7.5-1.8c2.3 1.5 3.1 3.9 1.9 6zM85.6 352c-1.7 2.4-5.5 1.5-7.8-.9-2.2-2.4-2.2-5.7-.3-8.2s5.5-1.5 7.8.9c2.2 2.4 2.2 5.7.3 8.2zm9.1-48.3c-2.9 2.1-6.9.8-8.7-2.1-1.8-2.9-.5-6.8 2.3-8.9 2.9-2.1 6.9-.8 8.7 2.1 1.8 2.9.5 6.8-2.3 8.9zM104.3 31.8c-2.9-2.1-6.9.8-8.7-2.1-1.8-2.9-.5-6.8 2.3-8.9 2.9-2.1 6.9-.8 8.7 2.1 1.8 2.9.5 6.8-2.3 8.9zM103.3 40c-2.2 2.4-2.2 5.7-.3 8.2s5.5 1.5 7.8-.9c2.2-2.4 2.2-5.7.3-8.2-2.2-2.4-5.5-1.5-7.8.9zM128.5 25.1c-2.3-1.5-3.1-3.9-1.9-6s5.2-3.3 7.5-1.8c2.3 1.5 3.1 3.9 1.9 6s-5.2 3.3-7.5 1.8zM248.5 450.4c-5.4 5.4-8.1 12.7-8.1 20.3 0 7.6 2.7 15 8.1 20.3 5.4 5.4 12.8 8.1 20.3 8.1 7.6 0 15-2.7 20.3-8.1 5.4-5.4 8.1-12.8 8.1-20.3 0-7.6-2.7-15-8.1-20.3-5.4-5.4-12.8-8.1-20.3-8.1-7.5 0-14.9 2.7-20.3 8.1zM292.1 430.7c-2.9 2.9-4.5 6.8-4.5 10.7 0 3.9 1.6 7.8 4.5 10.7 2.9 2.9 6.8 4.5 10.7 4.5 3.9 0 7.8-1.6 10.7-4.5 2.9-2.9 4.5-6.8 4.5-10.7 0-3.9-1.6-7.8-4.5-10.7-2.9-2.9-6.8-4.5-10.7-4.5-3.9 0-7.8 1.6-10.7 4.5zM229.5 191.4c-4.9 2.8-8 8.3-8 14.4V240.2c0 6.1 3.1 11.6 8 14.4 4.9 2.8 10.6 2.8 15.5 0 4.9-2.8 8-8.3 8-14.4v-34.4c0-6.1-3.1-11.6-8-14.4-4.9-2.8-10.6-2.8-15.5 0zm19.5 25.1c-1.6 1.6-4.1 1.6-5.7 0-1.6-1.6-1.6-4.1 0-5.7 1.6-1.6 4.1-1.6 5.7 0 1.6 1.6 1.6 4.1 0 5.7zM343.8 221.7c-.5 0-1 0-1.5 0-3.5 0-6.9-.9-9.9-2.7-5.9-3.5-9.6-9.9-9.6-17.1V169c0-7.2 3.7-13.6 9.6-17.1 3-1.8 6.4-2.7 9.9-2.7.5 0 1 0 1.5 0 3.5 0 6.9.9 9.9 2.7 5.9 3.5 9.6 9.9 9.6 17.1v32.9c0 7.2-3.7 13.6-9.6 17.1-3 1.8-6.4 2.7-9.9 2.7zm-11.4-46.6c-1.6 1.6-4.1 1.6-5.7 0-1.6-1.6-1.6-4.1 0-5.7 1.6-1.6 4.1-1.6 5.7 0 1.6 1.6 1.6 4.1 0 5.7zM366.5 142.3c2.6 1.7 5.6 2.6 8.7 2.6 3 0 5.9-1 8.3-2.9 4.8-3.7 7.7-9.3 7.7-15.6 0-6.2-2.9-11.8-7.7-15.6-2.4-1.9-5.3-2.9-8.3-2.9-3.1 0-6.1.9-8.7 2.6-4.8 3.7-7.7 9.3-7.7 15.6s2.9 11.9 7.7 15.8zM248.5 450.4c-5.4 5.4-8.1 12.7-8.1 20.3 0 7.6 2.7 15 8.1 20.3 5.4 5.4 12.8 8.1 20.3 8.1 7.6 0 15-2.7 20.3-8.1 5.4-5.4 8.1-12.8 8.1-20.3 0-7.6-2.7-15-8.1-20.3-5.4-5.4-12.8-8.1-20.3-8.1-7.5 0-14.9 2.7-20.3 8.1zM292.1 430.7c-2.9 2.9-4.5 6.8-4.5 10.7 0 3.9 1.6 7.8 4.5 10.7 2.9 2.9 6.8 4.5 10.7 4.5 3.9 0 7.8-1.6 10.7-4.5 2.9-2.9 4.5-6.8 4.5-10.7 0-3.9-1.6-7.8-4.5-10.7-2.9-2.9-6.8-4.5-10.7-4.5-3.9 0-7.8 1.6-10.7 4.5z"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/lucas-paupie-94839837a/" target="_blank" aria-label="LinkedIn">
-          <svg class="nav-icon text-gray-400 hover:text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 32H32C14.3 32 0 46.3 0 64v384c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32zM135.2 416H69.5V202.9h65.7V416zm-32.6-237.9c-27.1 0-49-21.9-49-49s21.9-49 49-49 49 21.9 49 49-21.9 49-49 49zM384 416h-65.7V306.9c0-2.8 0-6.6-.1-10.4-3.4-12.8-14-26.3-31-26.3-30.2 0-43.1 23.3-43.1 57.5V416H178.6V202.9h61.3v26.7c8.6-16.7 21.2-30.8 47.9-30.8 48.4 0 57.2 31.7 57.2 73.1V416z" /></svg><!-- esto lo hice con chatgpt para que quede mejor que una imagen -->
+          <svg class="nav-icon text-gray-400 hover:text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H32C14.3 32 0 46.3 0 64v384c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32zM135.2 416H69.5V202.9h65.7V416zm-32.6-237.9c-27.1 0-49-21.9-49-49s21.9-49 49-49 49 21.9 49 49-21.9 49-49 49zM384 416h-65.7V306.9c0-2.8 0-6.6-.1-10.4-3.4-12.8-14-26.3-31-26.3-30.2 0-43.1 23.3-43.1 57.5V416H178.6V202.9h61.3v26.7c8.6-16.7 21.2-30.8 47.9-30.8 48.4 0 57.2 31.7 57.2 73.1V416z"/></svg>
         </a>
         <a href="cv.pdf" download aria-label="Descargar CV">
-          <svg class="nav-icon text-gray-400 hover:text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 240c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-16zm64 128c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v16zm128 32c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16h-80zm16-64c0 8.8-7.2 16-16 16h-80c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16zm16-64c0 8.8-7.2 16-16 16h-80c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16zm-176-64c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16H80zm176-128c13.2 0 24 10.8 24 24V128h96l-120-120z" /></svg><!-- esto lo hice con chatgpt para que quede mejor que una imagen -->
+          <svg class="nav-icon text-gray-400 hover:text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 240c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-16zm64 128c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v16zm128 32c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16h-80zm16-64c0 8.8-7.2 16-16 16h-80c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16zm16-64c0 8.8-7.2 16-16 16h-80c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16zm-176-64c-8.8 0-16-7.2-16-16v-16c0-8.8 7.2-16 16-16h80c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16H80zm176-128c13.2 0 24 10.8 24 24V128h96l-120-120z"/></svg>
         </a>
       </div>
       <a href="#inicio" class="flex items-center gap-2 text-xl font-extrabold tracking-tight text-primary">
         <img src="img/lucas.jpg" alt="Foto de Lucas Paupie" class="w-8 h-8 rounded-full">
         Lucas Paupie
       </a>
-      <!-- Links de navegacion -->
       <nav class="ml-auto hidden md:flex items-center gap-6 text-sm font-medium">
         <a class="hover:text-primary" href="#inicio">Inicio</a>
         <a class="hover:text-primary" href="#proyectos">Proyectos</a>
@@ -93,12 +95,10 @@
         <a class="hover:text-primary" href="#habilidades">Habilidades</a>
         <a class="hover:text-primary" href="#contacto">Contacto</a>
       </nav>
-      <!-- Boton de menu para movil -->
       <button id="btnMenu" class="ml-auto md:hidden inline-flex items-center justify-center rounded-xl border border-[#333] p-2" aria-label="Abrir menú">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
-    <!-- Menu desplegable para movil -->
     <div id="mobileNav" class="hidden md:hidden border-t border-[#333]">
       <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 text-sm">
         <a class="hover:text-primary" href="#inicio">Inicio</a>
@@ -112,7 +112,6 @@
   </header>
 
   <main>
-    <!-- Seccion Hero -->
     <section id="inicio" class="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center">
       <img src="img/lucas.jpg" alt="Foto de perfil de Lucas Paupie" class="w-24 h-24 rounded-full mx-auto mb-6">
       <p class="text-sm uppercase tracking-widest text-gray-400 mb-2">Disponible para oportunidades</p>
@@ -126,89 +125,111 @@
     </section>
 
     <!-- Seccion Proyectos -->
-    <section id="proyectos" class="py-20 px-4 bg-darkpanel">
-      <div class="max-w-6xl mx-auto text-center mb-12">
-        <h3 class="text-3xl font-bold text-primary mb-2">Mis proyectos</h3>
-        <p class="text-gray-400">Una selección de trabajos personales y de clase.</p>
-      </div>
-      <div class="max-w-6xl mx-auto grid gap-6">
-        <!-- Proyecto 1 -->
-        <a href="#" class="project-card block p-6 hover:border-transparent">
-          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <img src="img/presentacion.png" alt="Icono de Proyecto 1" class="w-16 h-16 rounded-full">
-              <div>
-                <h4 class="project-title text-xl font-bold text-lightgray transition">Proyecto 1 — Presentación personal</h4>
-                <p class="text-sm text-gray-300">Trabajo realizado con HTML y CSS, una breve introducción sobre mí.</p>
+    <section id="proyectos" class="py-16 bg-darkpanel text-lightgray font-sans">
+      <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-bold text-primary text-center mb-6">Mis proyectos</h3>
+        <p class="text-gray-400 text-center mb-12">Una selección de trabajos personales y de clase.</p>
+        
+        <div class="space-y-8 max-w-4xl mx-auto">
+      <!-- Proyecto 1 -->
+          <a href="https://lucaspaupie.github.io/tarjeta-presentacion/" target="_blank" class="block">
+            <div class="bg-darkpanel p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8 transform transition-all duration-300 hover:scale-[1.02] border border-gray-700 rounded-2xl shadow-xl hover:bg-primary group">
+              <div class="w-full md:w-1/3 flex-shrink-0">
+                <img src="img/presentacion.png" alt="Imagen del Proyecto 1" class="rounded-full object-cover w-full h-full">
+              </div>
+              <div class="flex-grow flex flex-col justify-center space-y-4 w-full md:w-2/3">
+                <div>
+                  <h4 class="text-2xl font-bold text-lightgray group-hover:text-darkbg transition-colors duration-300">
+                    Proyecto 1 — Presentación personal
+                  </h4>
+                  <p class="mt-2 text-gray-300 group-hover:text-darkbg transition-colors duration-300">
+                    Trabajo realizado con HTML y CSS, una breve introducción sobre mí.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-gray-800 group-hover:bg-darkbg group-hover:text-lightgray text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md transition-colors duration-300">HTML</span>
+                  <span class="bg-gray-800 group-hover:bg-darkbg group-hover:text-lightgray text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md transition-colors duration-300">CSS</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                  <a href="https://lucaspaupie.github.io/tarjeta-presentacion/" class="bg-primary hover:bg-orange-600 text-darkbg font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 text-center" target="_blank">
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/lucaspaupie/tarjeta-presentacion" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 text-center" target="_blank">
+                    Ver Código
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-4 mt-4 md:mt-0">
-              <div class="flex items-center gap-2">
-                <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs project-tech">HTML</span>
-                <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs project-tech">CSS</span>
+          </a>
+      <!-- Proyecto 2 -->
+          <a href="https://lucaspaupie.github.io/menu-digital/" target="_blank" class="block">
+            <div class="bg-darkpanel p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8 transform transition-all duration-300 hover:scale-[1.02] border border-gray-700 rounded-2xl shadow-xl hover:bg-primary group">
+              <div class="w-full md:w-1/3 flex-shrink-0">
+                <img src="img/rigotti.png" alt="Imagen del Proyecto 2" class="rounded-full object-cover w-full h-full">
               </div>
-              <div class="flex flex-col md:flex-row gap-3 text-sm">
-                <a href="https://lucaspaupie.github.io/tarjeta-presentacion/" class="project-link text-lightgray hover:underline transition">Ver demo</a>
-                <a href="https://github.com/lucaspaupie/tarjeta-presentacion" class="project-link text-lightgray hover:underline transition">Código</a>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Proyecto 2 -->
-        <a href="#" class="project-card block p-6 hover:border-transparent">
-          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <img src="img/rigotti.png" alt="Icono de Proyecto 2" class="w-16 h-16 rounded-full">
-              <div>
-                <h4 class="project-title text-xl font-bold text-lightgray transition">Proyecto 2 — Menú restaurante</h4>
-                <p class="text-sm text-gray-300">Trabajo realizado con HTML y CSS. Menú del restaurante Rigotti´s.</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4 mt-4 md:mt-0">
-              <div class="flex items-center gap-2">
-                <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs project-tech">HTML</span>
-                <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs project-tech">CSS</span>
-              </div>
-              <div class="flex flex-col md:flex-row gap-3 text-sm">
-                <a href="https://lucaspaupie.github.io/menu-digital/" class="project-link text-lightgray hover:underline transition">Ver demo</a>
-                <a href="https://github.com/lucaspaupie/menu-digital" class="project-link text-lightgray hover:underline transition">Código</a>
+              <div class="flex-grow flex flex-col justify-center space-y-4 w-full md:w-2/3">
+                <div>
+                  <h4 class="text-2xl font-bold text-lightgray group-hover:text-darkbg transition-colors duration-300">
+                    Proyecto 2 — Menú restaurante
+                  </h4>
+                  <p class="mt-2 text-gray-300 group-hover:text-darkbg transition-colors duration-300">
+                    Trabajo realizado con HTML y CSS. Menú del restaurante Rigotti´s.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-gray-800 group-hover:bg-darkbg group-hover:text-lightgray text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md transition-colors duration-300">HTML</span>
+                  <span class="bg-gray-800 group-hover:bg-darkbg group-hover:text-lightgray text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md transition-colors duration-300">CSS</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                  <a href="https://lucaspaupie.github.io/menu-digital/" class="bg-primary hover:bg-orange-600 text-darkbg font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 text-center" target="_blank">
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/lucaspaupie/menu-digital" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 text-center" target="_blank">
+                    Ver Código
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-
-        <!-- Proyecto 3 -->
-        <a href="#" class="project-card block p-6 hover:border-transparent">
-          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <img src="img/tablero.png" alt="Icono de Proyecto 3" class="w-16 h-16 rounded-full">
-              <div>
-                <h4 class="project-title text-xl font-bold text-lightgray transition">Proyecto 3 — Juego de la Oca</h4>
-                <p class="text-sm text-gray-300">Trabajo realizado usando QTCreator y C++. Juego realizado entre compañeros.</p>
+          </a>
+      <!-- Proyecto 3 -->
+          <a href="https://github.com/lucaspaupie/tp-poo-oca" target="_blank" class="block">
+            <div class="bg-darkpanel p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8 transform transition-all duration-300 hover:scale-[1.02] border border-gray-700 rounded-2xl shadow-xl hover:bg-primary group">
+              <div class="w-full md:w-1/3 flex-shrink-0">
+                <img src="img/tablero.png" alt="Imagen del Proyecto 3" class="rounded-full object-cover w-full h-full">
+              </div>
+              <div class="flex-grow flex flex-col justify-center space-y-4 w-full md:w-2/3">
+                <div>
+                  <h4 class="text-2xl font-bold text-lightgray group-hover:text-darkbg transition-colors duration-300">
+                    Proyecto 3 — Juego de la Oca
+                  </h4>
+                  <p class="mt-2 text-gray-300 group-hover:text-darkbg transition-colors duration-300">
+                    Trabajo realizado usando QTCreator y C++. Juego realizado entre compañeros.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-gray-800 group-hover:bg-darkbg group-hover:text-lightgray text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md transition-colors duration-300">QTCreator</span>
+                  <span class="bg-gray-800 group-hover:bg-darkbg group-hover:text-lightgray text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md transition-colors duration-300">C++</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                  <a href="https://github.com/lucaspaupie/tp-poo-oca" class="bg-primary hover:bg-orange-600 text-darkbg font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 text-center" target="_blank">
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/lucaspaupie/tp-poo-oca" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-300 text-center" target="_blank">
+                    Ver Código
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-4 mt-4 md:mt-0">
-              <div class="flex items-center gap-2">
-                <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs project-tech">QTCreator</span>
-                <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs project-tech">C++</span>
-              </div>
-              <div class="flex flex-col md:flex-row gap-3 text-sm">
-                <a href="https://github.com/lucaspaupie/tp-poo-oca" class="project-link text-lightgray hover:underline transition">Ver demo</a>
-                <a href="https://github.com/lucaspaupie/tp-poo-oca" class="project-link text-lightgray hover:underline transition">Código</a>
-              </div>
-            </div>
-          </div>
-        </a>
+          </a>
+    
+        </div>
       </div>
     </section>
 
-    <!-- Seccion Experiencia -->
     <section id="experiencia" class="py-20 px-4 max-w-6xl mx-auto">
       <h3 class="text-3xl font-bold text-primary mb-4">Experiencia</h3>
       <p class="text-gray-400 mb-8">Empresas, prácticas o proyectos relevantes.</p>
       <div class="grid md:grid-cols-2 gap-6">
-        <!-- Experiencia 1 -->
         <div class="group relative bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow transition-all duration-300 ease-in-out hover:border-primary">
           <div class="flex justify-between items-center mb-2">
             <h4 class="font-bold text-lightgray group-hover:text-primary transition-colors duration-300">Estudiante en Licenciatura en Sistemas de Información</h4>
@@ -218,7 +239,6 @@
             <p class="text-gray-300 text-sm">Estudiando para desarrollarme y diseñar sistemas tecnológicos que ayuden a las diferentes organizaciones y buscando nuevas oportunidades usando herramientas modernas.</p>
           </div>
         </div>
-        <!-- Experiencia 2 -->
         <div class="group relative bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow transition-all duration-300 ease-in-out hover:border-primary">
           <div class="flex justify-between items-center mb-2">
             <h4 class="font-bold text-lightgray group-hover:text-primary transition-colors duration-300">Desarrollador Frontend</h4>
@@ -231,7 +251,6 @@
       </div>
     </section>
 
-    <!--Seccion Habilidades -->
     <section id="habilidades" class="py-20 px-4 bg-darkpanel">
       <h3 class="text-3xl font-bold text-primary text-center mb-6">Habilidades</h3>
       <p class="text-gray-400 text-center mb-8">Tecnologías dominadas y en aprendizaje.</p>
@@ -248,7 +267,6 @@
       </ul>
     </section>
 
-    <!--Seccion Contacto -->
     <section id="contacto" class="py-20 px-4 max-w-6xl mx-auto">
       <h3 class="text-3xl font-bold text-primary mb-6 text-center">Contacto</h3>
       <form id="formContacto" novalidate class="bg-darkpanel p-6 rounded-2xl border border-gray-700 card-shadow max-w-2xl mx-auto grid gap-4">
@@ -261,7 +279,6 @@
     </section>
   </main>
 
-  <!--Seccion Footer -->
   <footer class="bg-darkpanel border-t border-gray-700 mt-20">
     <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-gray-400 text-sm">&copy; 2025 Lucas Paupie. Todos los derechos reservados.</p>
@@ -269,7 +286,6 @@
   </footer>
 
   <script>
-    // Código para el menú móvil
     const btnMenu = document.getElementById('btnMenu');
     const mobileNav = document.getElementById('mobileNav');
     const navLinks = document.querySelectorAll('#mobileNav a');
@@ -284,7 +300,6 @@
       });
     });
 
-    // Código para el formulario de contacto
     const formContacto = document.getElementById('formContacto');
     const formOk = document.getElementById('formOk');
 
