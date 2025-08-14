@@ -6,8 +6,6 @@
   <title>Portafolio — Lucas Paupie</title>
   <meta name="description" content="Portafolio profesional: proyectos, habilidades, experiencia y contacto." />
   <meta name="theme-color" content="#ff7a00" />
-
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -31,35 +29,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Estilo del efecto de sombra para las tarjetas */
     .card-shadow { box-shadow: 0 10px 25px rgba(0,0,0,.08); }
-
-    /* Estilos personalizados para el nuevo diseño de proyectos */
     .project-card {
-        border-radius: 1rem; /* rounded-2xl */
-        border: 1px solid #374151; /* border-gray-700 */
-        background-color: #1a1a1a; /* bg-darkpanel */
+        border-radius: 1rem; 
+        border: 1px solid #374151; 
+        background-color: #1a1a1a; 
         transition-property: all;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: 150ms;
     }
     .project-card:hover {
-        background-color: #ff7a00; /* hover:bg-primary */
-        color: #0d0d0d; /* hover:text-darkbg */
+        background-color: #ff7a00; 
+        color: #0d0d0d; 
     }
     .project-card:hover .project-title,
     .project-card:hover .project-tech,
     .project-card:hover .project-link {
         color: #0d0d0d;
     }
+    .skill-card {
+      transition: all 0.3s ease-in-out;
+    }
+    .skill-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4);
+    }
   </style>
 </head>
 <body class="font-sans bg-darkbg text-lightgray selection:bg-primary/60 selection:text-darkbg">
 
-  <!-- Navbar -->
+  <!--Seccion para la navbar -->
   <header class="sticky top-0 z-50 border-b border-[#333] backdrop-blur supports-[backdrop-filter]:bg-darkpanel/70">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
-      <!-- Se ha movido la foto a la izquierda junto al nombre -->
       <a href="#inicio" class="flex items-center gap-2 text-xl font-extrabold tracking-tight text-primary">
         <img src="img/lucas.jpg" alt="Foto de Lucas Paupie" class="w-8 h-8 rounded-full">
         Lucas Paupie
@@ -89,11 +90,11 @@
   </header>
 
   <main>
-    <!-- Hero -->
+    <!--Seccion Hero -->
     <section id="inicio" class="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center">
-      <img src="img/lucas.jpg" alt="Foto de Lucas Paupie" class="w-24 h-24 rounded-full mx-auto mb-6">
+      <img src="img/lucas.jpg" alt="Foto de perfil de Lucas Paupie" class="w-24 h-24 rounded-full mx-auto mb-6">
       <p class="text-sm uppercase tracking-widest text-gray-400 mb-2">Disponible para oportunidades</p>
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">Hola, soy <span class="text-primary">Lucas Paupie</span></h1>
+      <h1 class="text-4xl md:text-6xl font-bold mb-4"><span class="text-primary">Lucas Paupie</span></h1>
       <h2 class="text-lg md:text-2xl font-semibold text-gray-400 mb-6">Desarrollador Web Junior</h2>
       <p class="max-w-xl mx-auto text-gray-300 mb-6">Apasionado por crear páginas atractivas y códigos funcionales. Me gusta combinar diseño y programación para lograr experiencias claras y útiles. Siempre busco aprender nuevas tecnologías y mejorar profesionalmente.</p>
       <div class="flex justify-center gap-4">
@@ -102,14 +103,14 @@
       </div>
     </section>
 
-    <!-- Proyectos -->
+    <!-- Seccion Proyectos -->
     <section id="proyectos" class="py-20 px-4 bg-darkpanel">
       <div class="max-w-6xl mx-auto text-center mb-12">
         <h3 class="text-3xl font-bold text-primary mb-2">Mis proyectos</h3>
         <p class="text-gray-400">Una selección de trabajos personales y de clase.</p>
       </div>
       <div class="max-w-6xl mx-auto grid gap-6">
-        <!-- Proyecto 1 - Diseño minimalista -->
+        <!-- Proyecto 1 -->
         <a href="#" class="project-card block p-6 hover:border-transparent">
           <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
             <div class="flex items-center gap-4">
@@ -124,12 +125,13 @@
               <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">CSS</span>
             </div>
             <div class="md:ml-auto flex flex-col md:flex-row gap-3 text-sm mt-4 md:mt-0">
-              <span class="project-link text-lightgray hover:underline transition">Proyecto</span>
+              <a href="https://lucaspaupie.github.io/tarjeta-presentacion/" class="project-link text-lightgray hover:underline transition">Ver demo</a>
+              <a href="https://github.com/lucaspaupie/tarjeta-presentacion" class="project-link text-lightgray hover:underline transition">Código</a>
             </div>
           </div>
         </a>
 
-        <!-- Proyecto 2 - Diseño minimalista -->
+        <!-- Proyecto 2 -->
         <a href="#" class="project-card block p-6 hover:border-transparent">
           <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
             <div class="flex items-center gap-4">
@@ -144,12 +146,13 @@
               <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">CSS</span>
             </div>
             <div class="md:ml-auto flex flex-col md:flex-row gap-3 text-sm mt-4 md:mt-0">
-              <span class="project-link text-lightgray hover:underline transition">Proyecto</span>
+              <a href="https://lucaspaupie.github.io/menu-digital/" class="project-link text-lightgray hover:underline transition">Ver demo</a>
+              <a href="https://github.com/lucaspaupie/menu-digital" class="project-link text-lightgray hover:underline transition">Código</a>
             </div>
           </div>
         </a>
 
-        <!-- Proyecto 3 - Diseño minimalista -->
+        <!-- Proyecto 3 -->
         <a href="#" class="project-card block p-6 hover:border-transparent">
           <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
             <div class="flex items-center gap-4">
@@ -164,53 +167,60 @@
               <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">C++</span>
             </div>
             <div class="md:ml-auto flex flex-col md:flex-row gap-3 text-sm mt-4 md:mt-0">
-              <span class="project-link text-lightgray hover:underline transition">Proyecto</span>
+              <a href="https://github.com/lucaspaupie/tp-poo-oca" class="project-link text-lightgray hover:underline transition">Ver demo</a>
+              <a href="https://github.com/lucaspaupie/tp-poo-oca" class="project-link text-lightgray hover:underline transition">Código</a>
             </div>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- Experiencia -->
+    <!-- Seccion Experiencia -->
     <section id="experiencia" class="py-20 px-4 max-w-6xl mx-auto">
       <h3 class="text-3xl font-bold text-primary mb-4">Experiencia</h3>
       <p class="text-gray-400 mb-8">Empresas, prácticas o proyectos relevantes.</p>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow">
+        <!-- Experiencia 1 -->
+        <div class="group relative bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow transition-all duration-300 ease-in-out hover:border-primary">
           <div class="flex justify-between items-center mb-2">
-            <h4 class="font-bold">Estudiante en Licenciatura en Sistemas de Información</h4>
-            <span class="text-xs text-gray-500">2022 — actualidad</span>
+            <h4 class="font-bold text-lightgray group-hover:text-primary transition-colors duration-300">Estudiante en Licenciatura en Sistemas de Información</h4>
+            <span class="text-xs text-gray-500 group-hover:text-primary transition-colors duration-300">2022 — actualidad</span>
           </div>
-          <p class="text-gray-300 text-sm">Estudiando para desarrollarme y diseñar sistemas tecnológicos que ayuden a las diferentes organizaciones y buscando nuevas oportunidades usando herramientas modernas.</p>
+          <div class="mt-2 h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:h-20">
+            <p class="text-gray-300 text-sm">Estudiando para desarrollarme y diseñar sistemas tecnológicos que ayuden a las diferentes organizaciones y buscando nuevas oportunidades usando herramientas modernas.</p>
+          </div>
         </div>
-        <div class="bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow">
+        <!-- Experiencia 2 -->
+        <div class="group relative bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow transition-all duration-300 ease-in-out hover:border-primary">
           <div class="flex justify-between items-center mb-2">
-            <h4 class="font-bold">Desarrollador Frontend</h4>
-            <span class="text-xs text-gray-500">2025</span>
+            <h4 class="font-bold text-lightgray group-hover:text-primary transition-colors duration-300">Desarrollador Frontend</h4>
+            <span class="text-xs text-gray-500 group-hover:text-primary transition-colors duration-300">2025</span>
           </div>
-          <p class="text-gray-300 text-sm">Me encanta dar vida a las ideas en pantalla, creando interfaces atractivas y funcionales. Disfruto combinar diseño y código para lograr experiencias rápidas e intuitivas.</p>
+          <div class="mt-2 h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:h-20">
+            <p class="text-gray-300 text-sm">Me encanta dar vida a las ideas en pantalla, creando interfaces atractivas y funcionales. Disfruto combinar diseño y código para lograr experiencias rápidas e intuitivas.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Habilidades -->
+    <!--Seccion Habilidades -->
     <section id="habilidades" class="py-20 px-4 bg-darkpanel">
       <h3 class="text-3xl font-bold text-primary text-center mb-6">Habilidades</h3>
       <p class="text-gray-400 text-center mb-8">Tecnologías dominadas y en aprendizaje.</p>
       <ul class="max-w-4xl mx-auto flex flex-wrap gap-3 justify-center">
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">HTML</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">CSS</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">C++</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">QT</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">JavaScript</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">Tailwind CSS</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">Git</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">GitHub</li>
-        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">React (básico)</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">HTML</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">CSS</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">C++</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">QT</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">JavaScript</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">Tailwind CSS</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">Git</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">GitHub</li>
+        <li class="skill-card bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow hover:border-primary">React (básico)</li>
       </ul>
     </section>
 
-    <!-- Contacto -->
+    <!--Seccion Contacto -->
     <section id="contacto" class="py-20 px-4 max-w-6xl mx-auto">
       <h3 class="text-3xl font-bold text-primary mb-6 text-center">Contacto</h3>
       <form id="formContacto" novalidate class="bg-darkpanel p-6 rounded-2xl border border-gray-700 card-shadow max-w-2xl mx-auto grid gap-4">
@@ -222,18 +232,18 @@
       </form>
     </section>
 
-  <!-- Redes & CV -->
+  <!--Seccion Redes & CV -->
     <section id="redes" class="py-20 px-4 bg-darkpanel">
       <h3 class="text-3xl font-bold text-primary text-center mb-6">Redes & CV</h3>
       <div class="flex flex-wrap justify-center gap-3">
-        <a href="https://github.com/tuusuario" target="_blank" class="px-4 py-2 border border-gray-700 rounded-2xl hover:border-primary hover:text-primary transition">GitHub</a>
-        <a href="https://www.linkedin.com/in/tuusuario" target="_blank" class="px-4 py-2 border border-gray-700 rounded-2xl hover:border-primary hover:text-primary transition">LinkedIn</a>
+        <a href="https://github.com/lucaspaupie" target="_blank" class="px-4 py-2 border border-gray-700 rounded-2xl hover:border-primary hover:text-primary transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/lucas-paupie-94839837a/" target="_blank" class="px-4 py-2 border border-gray-700 rounded-2xl hover:border-primary hover:text-primary transition">LinkedIn</a>
         <a href="cv.pdf" download class="bg-primary text-darkbg px-5 py-2.5 rounded-2xl font-semibold hover:bg-orange-600 transition">Descargar CV</a>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!--Seccion Footer -->
   <footer class="bg-darkpanel border-t border-gray-700 mt-20">
     <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-gray-400 text-sm">&copy; 2025 Lucas Paupie. Todos los derechos reservados.</p>
