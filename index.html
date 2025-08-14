@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portafolio — Lucas Paupie</title>
   <meta name="description" content="Portafolio profesional: proyectos, habilidades, experiencia y contacto." />
-  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="theme-color" content="#ff7a00" />
 
-  <!-- Tailwind CSS vía CDN -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          colors: {
+            primary: '#ff7a00',
+            darkbg: '#0d0d0d',
+            darkpanel: '#1a1a1a',
+            lightgray: '#e0e0e0'
+          },
           fontFamily: {
             sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans"],
           },
@@ -21,331 +27,253 @@
       }
     }
   </script>
-  <!-- Fuente Inter (opcional) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Sombra suave utilitaria para tarjetas */
+    /* Estilo del efecto de sombra para las tarjetas */
     .card-shadow { box-shadow: 0 10px 25px rgba(0,0,0,.08); }
+
+    /* Estilos personalizados para el nuevo diseño de proyectos */
+    .project-card {
+        border-radius: 1rem; /* rounded-2xl */
+        border: 1px solid #374151; /* border-gray-700 */
+        background-color: #1a1a1a; /* bg-darkpanel */
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+    }
+    .project-card:hover {
+        background-color: #ff7a00; /* hover:bg-primary */
+        color: #0d0d0d; /* hover:text-darkbg */
+    }
+    .project-card:hover .project-title,
+    .project-card:hover .project-tech,
+    .project-card:hover .project-link {
+        color: #0d0d0d;
+    }
   </style>
 </head>
-<body class="font-sans bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100 selection:bg-sky-200/60 selection:text-slate-900">
-  <!-- ===== Encabezado / Navegación ===== -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-950/70">
+<body class="font-sans bg-darkbg text-lightgray selection:bg-primary/60 selection:text-darkbg">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 border-b border-[#333] backdrop-blur supports-[backdrop-filter]:bg-darkpanel/70">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
-      <a href="#inicio" class="text-xl font-extrabold tracking-tight">Lucas Paupie<span class="text-sky-500">.</span></a>
-
+      <!-- Se ha movido la foto a la izquierda junto al nombre -->
+      <a href="#inicio" class="flex items-center gap-2 text-xl font-extrabold tracking-tight text-primary">
+        <img src="https://placehold.co/40x40/ff7a00/0d0d0d?text=LP" alt="Foto de Lucas Paupie" class="w-8 h-8 rounded-full">
+        Lucas Paupie
+      </a>
       <nav class="ml-auto hidden md:flex items-center gap-6 text-sm font-medium">
-        <a class="hover:text-sky-600" href="#inicio">Inicio</a>
-        <a class="hover:text-sky-600" href="#proyectos">Proyectos</a>
-        <a class="hover:text-sky-600" href="#experiencia">Experiencia</a>
-        <a class="hover:text-sky-600" href="#habilidades">Habilidades</a>
-        <a class="hover:text-sky-600" href="#contacto">Contacto</a>
-        <a class="hover:text-sky-600" href="#redes">Redes & CV</a>
+        <a class="hover:text-primary" href="#inicio">Inicio</a>
+        <a class="hover:text-primary" href="#proyectos">Proyectos</a>
+        <a class="hover:text-primary" href="#experiencia">Experiencia</a>
+        <a class="hover:text-primary" href="#habilidades">Habilidades</a>
+        <a class="hover:text-primary" href="#contacto">Contacto</a>
+        <a class="hover:text-primary" href="#redes">Redes & CV</a>
       </nav>
-
-      <!-- Botón menú móvil -->
-      <button id="btnMenu" class="ml-auto md:hidden inline-flex items-center justify-center rounded-xl border border-slate-300/70 dark:border-slate-700 p-2" aria-label="Abrir menú">
+      <button id="btnMenu" class="ml-auto md:hidden inline-flex items-center justify-center rounded-xl border border-[#333] p-2" aria-label="Abrir menú">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
-    <!-- Menú móvil -->
-    <div id="mobileNav" class="hidden md:hidden border-t border-slate-200/60 dark:border-slate-800">
+    <div id="mobileNav" class="hidden md:hidden border-t border-[#333]">
       <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 text-sm">
-        <a class="hover:text-sky-600" href="#inicio">Inicio</a>
-        <a class="hover:text-sky-600" href="#proyectos">Proyectos</a>
-        <a class="hover:text-sky-600" href="#experiencia">Experiencia</a>
-        <a class="hover:text-sky-600" href="#habilidades">Habilidades</a>
-        <a class="hover:text-sky-600" href="#contacto">Contacto</a>
-        <a class="hover:text-sky-600" href="#redes">Redes & CV</a>
+        <a class="hover:text-primary" href="#inicio">Inicio</a>
+        <a class="hover:text-primary" href="#proyectos">Proyectos</a>
+        <a class="hover:text-primary" href="#experiencia">Experiencia</a>
+        <a class="hover:text-primary" href="#habilidades">Habilidades</a>
+        <a class="hover:text-primary" href="#contacto">Contacto</a>
+        <a class="hover:text-primary" href="#redes">Redes & CV</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- ===== Sección de presentación personal ===== -->
-    <section id="inicio" class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-      <div class="grid md:grid-cols-[1fr,1fr] items-center gap-10">
-        <div>
-          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400">
-            <span class="h-2 w-2 rounded-full bg-sky-500"></span> Disponible para oportunidades
-          </p>
-          <h1 class="mt-3 text-3xl md:text-5xl font-extrabold leading-tight">
-            Hola, soy <span class="text-sky-600">Lucas Paupie</span>
-          </h1>
-          <h2 class="mt-2 text-lg md:text-2xl font-semibold text-slate-600 dark:text-slate-300">Desarrollador/a Web Junior</h2>
-          <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-prose">Un desarrollador web apasionado por crear páginas atractivas y códigos funcionales. Disfruto transformar ideas en proyectos reales, combinando diseño y programación para lograr experiencias claras y útiles.
-Me motiva aprender nuevas tecnologías, mejorar mis habilidades y enfrentar retos que me permitan crecer profesionalmente.</p>
-
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#proyectos" class="rounded-2xl bg-sky-600 text-white px-5 py-2.5 font-semibold hover:bg-sky-700 transition">Ver proyectos</a>
-            <a href="#contacto" class="rounded-2xl border border-slate-300 dark:border-slate-700 px-5 py-2.5 font-semibold hover:border-sky-400 hover:text-sky-600 transition">Contactar</a>
-          </div>
-        </div>
-        <div class="flex justify-center md:justify-end">
-          <img src="https://via.placeholder.com/320x320.png?text=Tu+Avatar" alt="Avatar o foto de perfil" class="h-64 w-64 md:h-80 md:w-80 rounded-full object-cover ring-4 ring-sky-500/20 card-shadow"/>
-        </div>
+    <!-- Hero -->
+    <section id="inicio" class="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center">
+      <img src="https://placehold.co/40x40/ff7a00/0d0d0d?text=LP" alt="Foto de perfil de Lucas Paupie" class="w-24 h-24 rounded-full mx-auto mb-6">
+      <p class="text-sm uppercase tracking-widest text-gray-400 mb-2">Disponible para oportunidades</p>
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Hola, soy <span class="text-primary">Lucas Paupie</span></h1>
+      <h2 class="text-lg md:text-2xl font-semibold text-gray-400 mb-6">Desarrollador Web Junior</h2>
+      <p class="max-w-xl mx-auto text-gray-300 mb-6">Apasionado por crear páginas atractivas y códigos funcionales. Me gusta combinar diseño y programación para lograr experiencias claras y útiles. Siempre busco aprender nuevas tecnologías y mejorar profesionalmente.</p>
+      <div class="flex justify-center gap-4">
+        <a href="#proyectos" class="bg-primary text-darkbg px-6 py-3 rounded-xl font-semibold hover:bg-orange-600 transition">Ver proyectos</a>
+        <a href="#contacto" class="border border-gray-600 px-6 py-3 rounded-xl font-semibold hover:border-primary hover:text-primary transition">Contactar</a>
       </div>
     </section>
 
-    <!-- ===== Sección de proyectos ===== -->
-    <section id="proyectos" class="bg-slate-50 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800">
-      <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-        <div class="flex items-end justify-between gap-4">
-          <div>
-            <h3 class="text-2xl md:text-3xl font-extrabold">Mis proyectos</h3>
-            <p class="text-slate-600 dark:text-slate-300">Una selección de trabajos personales y de clase.</p>
+    <!-- Proyectos -->
+    <section id="proyectos" class="py-20 px-4 bg-darkpanel">
+      <div class="max-w-6xl mx-auto text-center mb-12">
+        <h3 class="text-3xl font-bold text-primary mb-2">Mis proyectos</h3>
+        <p class="text-gray-400">Una selección de trabajos personales y de clase.</p>
+      </div>
+      <div class="max-w-6xl mx-auto grid gap-6">
+        <!-- Proyecto 1 - Diseño minimalista -->
+        <a href="#" class="project-card block p-6 hover:border-transparent">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <div class="flex items-center gap-4">
+              <img src="https://placehold.co/64x64/ff7a00/0d0d0d?text=P1" alt="Icono de Proyecto 1" class="w-16 h-16 rounded-full">
+              <div>
+                <h4 class="project-title text-xl font-bold text-lightgray transition">Proyecto 1 — Presentación personal</h4>
+                <p class="text-sm text-gray-300">Trabajo realizado con HTML y CSS, una breve introducción sobre mí.</p>
+              </div>
+            </div>
+            <div class="md:ml-auto flex items-center gap-2 mt-4 md:mt-0">
+              <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">HTML</span>
+              <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">CSS</span>
+            </div>
+            <div class="md:ml-auto flex flex-col md:flex-row gap-3 text-sm mt-4 md:mt-0">
+              <span class="project-link text-lightgray hover:underline transition">Ver demo</span>
+              <span class="project-link text-lightgray hover:underline transition">Código</span>
+            </div>
           </div>
-          <a href="#contacto" class="hidden md:inline text-sm font-semibold hover:text-sky-600">¿Trabajamos juntos?</a>
-        </div>
+        </a>
 
-        <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Proyecto 1 -->
-          <article class="rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 card-shadow">
-            <img src="https://via.placeholder.com/640x360.png?text=Proyecto+1" alt="Imagen del Proyecto 1" class="w-full h-44 object-cover" />
-            <div class="p-5">
-              <h4 class="text-lg font-bold">Proyecto 1 — Presentación personal</h4>
-              <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Trabajo realizado con HTML y CSS, en el cual se puede ver una breve introducción sobre mí.</p>
-              <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1">HTML</span>
-                <span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1">CSS</span>
-              </div>
-              <div class="mt-4 flex items-center gap-3">
-                <a href="#" class="text-sm font-semibold text-sky-700 hover:text-sky-900">Ver demo</a>
-                <a href="#" class="text-sm font-semibold hover:text-sky-600">Código</a>
+        <!-- Proyecto 2 - Diseño minimalista -->
+        <a href="#" class="project-card block p-6 hover:border-transparent">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <div class="flex items-center gap-4">
+              <img src="https://placehold.co/64x64/ff7a00/0d0d0d?text=P2" alt="Icono de Proyecto 2" class="w-16 h-16 rounded-full">
+              <div>
+                <h4 class="project-title text-xl font-bold text-lightgray transition">Proyecto 2 — Menú restaurante</h4>
+                <p class="text-sm text-gray-300">Trabajo realizado con HTML y CSS. Menú del restaurante Rigotti´s.</p>
               </div>
             </div>
-          </article>
+            <div class="md:ml-auto flex items-center gap-2 mt-4 md:mt-0">
+              <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">HTML</span>
+              <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">CSS</span>
+            </div>
+            <div class="md:ml-auto flex flex-col md:flex-row gap-3 text-sm mt-4 md:mt-0">
+              <span class="project-link text-lightgray hover:underline transition">Ver demo</span>
+              <span class="project-link text-lightgray hover:underline transition">Código</span>
+            </div>
+          </div>
+        </a>
 
-          <!-- Proyecto 2 -->
-          <article class="rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 card-shadow">
-            <img src="https://via.placeholder.com/640x360.png?text=Proyecto+2" alt="Imagen del Proyecto 2" class="w-full h-44 object-cover" />
-            <div class="p-5">
-              <h4 class="text-lg font-bold">Proyecto 2 — Menú restaurante</h4>
-              <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Trabajo realizado con HTML y CSS. Menú del restaurante Rigotti´s</p>
-              <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1">HTML</span>
-                <span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1">CSS</span>
-              </div>
-              <div class="mt-4 flex items-center gap-3">
-                <a href="#" class="text-sm font-semibold text-sky-700 hover:text-sky-900">Ver demo</a>
-                <a href="#" class="text-sm font-semibold hover:text-sky-600">Código</a>
+        <!-- Proyecto 3 - Diseño minimalista -->
+        <a href="#" class="project-card block p-6 hover:border-transparent">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <div class="flex items-center gap-4">
+              <img src="https://placehold.co/64x64/ff7a00/0d0d0d?text=P3" alt="Icono de Proyecto 3" class="w-16 h-16 rounded-full">
+              <div>
+                <h4 class="project-title text-xl font-bold text-lightgray transition">Proyecto 3 — Juego de la Oca</h4>
+                <p class="text-sm text-gray-300">Trabajo realizado usando QTCreator y C++. Juego realizado entre compañeros.</p>
               </div>
             </div>
-          </article>
-
-          <!-- Proyecto 3 -->
-          <article class="rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 card-shadow">
-            <img src="https://via.placeholder.com/640x360.png?text=Proyecto+3" alt="Imagen del Proyecto 3" class="w-full h-44 object-cover" />
-            <div class="p-5">
-              <h4 class="text-lg font-bold">Proyecto 3 — Juego de la oca</h4>
-              <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Trabajo realizado usando QTCreator y C++. Juego realizado entre varios compañeros basado en el tradicional juego de la oca, pero con un toque personal.</p>
-              <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                <span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1">QTCreator</span>
-                <span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1">C++</span>
-              </div>
-              <div class="mt-4 flex items-center gap-3">
-                <a href="#" class="text-sm font-semibold text-sky-700 hover:text-sky-900">Ver demo</a>
-                <a href="#" class="text-sm font-semibold hover:text-sky-600">Código</a>
-              </div>
+            <div class="md:ml-auto flex items-center gap-2 mt-4 md:mt-0">
+              <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">QTCreator</span>
+              <span class="rounded-full bg-gray-800 px-2.5 py-1 text-xs">C++</span>
             </div>
-          </article>
-        </div>
+            <div class="md:ml-auto flex flex-col md:flex-row gap-3 text-sm mt-4 md:mt-0">
+              <span class="project-link text-lightgray hover:underline transition">Ver demo</span>
+              <span class="project-link text-lightgray hover:underline transition">Código</span>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
 
-    
-
-    <!-- ===== Sección de experiencia ===== -->
-    <section id="experiencia" class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-      <h3 class="text-2xl md:text-3xl font-extrabold">Experiencia</h3>
-      <p class="text-slate-600 dark:text-slate-300">Empresas, prácticas o proyectos relevantes.</p>
-
-      <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <div class="rounded-2xl border border-slate-200/70 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 card-shadow">
-          <div class="flex items-center justify-between">
+    <!-- Experiencia -->
+    <section id="experiencia" class="py-20 px-4 max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-primary mb-4">Experiencia</h3>
+      <p class="text-gray-400 mb-8">Empresas, prácticas o proyectos relevantes.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow">
+          <div class="flex justify-between items-center mb-2">
             <h4 class="font-bold">Estudiante en Licenciatura en Sistemas de Información</h4>
-            <span class="text-xs text-slate-500">2022 — actualidad</span>
+            <span class="text-xs text-gray-500">2022 — actualidad</span>
           </div>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Estudiando para desarrollarme y diseñar sistemas tecnológicos que ayuden a las diferentes organizaciones y buscando nuevas oportunidades usando herramientas nuevas.</p>
+          <p class="text-gray-300 text-sm">Estudiando para desarrollarme y diseñar sistemas tecnológicos que ayuden a las diferentes organizaciones y buscando nuevas oportunidades usando herramientas modernas.</p>
         </div>
-        <div class="rounded-2xl border border-slate-200/70 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 card-shadow">
-          <div class="flex items-center justify-between">
+        <div class="bg-darkpanel p-5 rounded-2xl border border-gray-700 card-shadow">
+          <div class="flex justify-between items-center mb-2">
             <h4 class="font-bold">Desarrollador Frontend</h4>
-            <span class="text-xs text-slate-500">2025</span>
+            <span class="text-xs text-gray-500">2025</span>
           </div>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Me encanta dar vida a las ideas en la pantalla, creando interfaces atractivas y funcionales. Disfruto combinar diseño y código para lograr experiencias rápidas e intuitivas.</p>
+          <p class="text-gray-300 text-sm">Me encanta dar vida a las ideas en pantalla, creando interfaces atractivas y funcionales. Disfruto combinar diseño y código para lograr experiencias rápidas e intuitivas.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== Sección de habilidades ===== -->
-    <section id="habilidades" class="bg-slate-50 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800">
-      <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-        <h3 class="text-2xl md:text-3xl font-extrabold">Habilidades</h3>
-        <p class="text-slate-600 dark:text-slate-300">Tecnologías dominadas y en aprendizaje.</p>
-
-        <ul class="mt-6 flex flex-wrap gap-3 text-sm">
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">HTML</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">CSS</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">C++</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">QT</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">JavaScript</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">Tailwind CSS</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">Git</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">GitHub</li>
-          <li class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 px-4 py-2 card-shadow">React (básico)</li>
-          
-        </ul>
-      </div>
+    <!-- Habilidades -->
+    <section id="habilidades" class="py-20 px-4 bg-darkpanel">
+      <h3 class="text-3xl font-bold text-primary text-center mb-6">Habilidades</h3>
+      <p class="text-gray-400 text-center mb-8">Tecnologías dominadas y en aprendizaje.</p>
+      <ul class="max-w-4xl mx-auto flex flex-wrap gap-3 justify-center">
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">HTML</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">CSS</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">C++</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">QT</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">JavaScript</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">Tailwind CSS</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">Git</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">GitHub</li>
+        <li class="bg-darkbg px-4 py-2 rounded-2xl border border-gray-700 card-shadow">React (básico)</li>
+      </ul>
     </section>
 
-    <!-- ===== Sección de contacto ===== -->
-    <section id="contacto" class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-      <div class="grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <h3 class="text-2xl md:text-3xl font-extrabold">Contacto</h3>
-          <p class="text-slate-600 dark:text-slate-300">Completá el formulario y te responderé a la brevedad.</p>
-        </div>
-
-        <form id="formContacto" novalidate class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 p-6 card-shadow">
-          <div class="grid gap-4">
-            <div>
-              <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
-              <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent px-4 py-2.5 outline-none focus:ring-2 focus:ring-sky-500" />
-              <p class="mt-1 hidden text-xs text-red-600" data-error="nombre">Ingresá tu nombre.</p>
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium mb-1">Correo electrónico</label>
-              <input id="email" name="email" type="email" required placeholder="tu@email.com" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent px-4 py-2.5 outline-none focus:ring-2 focus:ring-sky-500" />
-              <p class="mt-1 hidden text-xs text-red-600" data-error="email">Ingresá un email válido.</p>
-            </div>
-            <div>
-              <label for="mensaje" class="block text-sm font-medium mb-1">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Contame sobre tu proyecto..." class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent px-4 py-2.5 outline-none focus:ring-2 focus:ring-sky-500"></textarea>
-              <p class="mt-1 hidden text-xs text-red-600" data-error="mensaje">El mensaje no puede estar vacío.</p>
-            </div>
-            <button type="submit" class="rounded-2xl bg-sky-600 text-white px-5 py-3 font-semibold hover:bg-sky-700 transition active:scale-95">Enviar mensaje</button>
-            <p id="formOk" class="hidden text-green-600 text-sm">¡Gracias! Tu mensaje fue validado (demo).</p>
-          </div>
-        </form>
-      </div>
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 px-4 max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-primary mb-6 text-center">Contacto</h3>
+      <form id="formContacto" novalidate class="bg-darkpanel p-6 rounded-2xl border border-gray-700 card-shadow max-w-2xl mx-auto grid gap-4">
+        <input id="nombre" type="text" placeholder="Nombre" class="p-3 rounded-xl bg-darkbg border border-gray-700 focus:border-primary outline-none" required>
+        <input id="email" type="email" placeholder="Correo electrónico" class="p-3 rounded-xl bg-darkbg border border-gray-700 focus:border-primary outline-none" required>
+        <textarea id="mensaje" rows="5" placeholder="Contame sobre tu proyecto..." class="p-3 rounded-xl bg-darkbg border border-gray-700 focus:border-primary outline-none" required></textarea>
+        <button type="submit" class="bg-primary text-darkbg px-6 py-3 rounded-xl font-semibold hover:bg-orange-600 transition">Enviar mensaje</button>
+        <p id="formOk" class="hidden text-green-500 text-sm">¡Gracias! Tu mensaje fue validado (demo).</p>
+      </form>
     </section>
 
-    <!-- ===== Redes sociales y CV ===== -->
-    <section id="redes" class="bg-slate-50 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800">
-      <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-        <h3 class="text-2xl md:text-3xl font-extrabold">Redes & CV</h3>
-        <p class="text-slate-600 dark:text-slate-300">Encontrame en redes profesionales o descargá mi CV.</p>
-
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="https://github.com/tuusuario" target="_blank" class="rounded-2xl border border-slate-300 dark:border-slate-700 px-4 py-2 font-semibold hover:border-sky-400 hover:text-sky-600 transition">GitHub</a>
-          <a href="https://www.linkedin.com/in/tuusuario" target="_blank" class="rounded-2xl border border-slate-300 dark:border-slate-700 px-4 py-2 font-semibold hover:border-sky-400 hover:text-sky-600 transition">LinkedIn</a>
-          <a href="#" class="rounded-2xl border border-slate-300 dark:border-slate-700 px-4 py-2 font-semibold hover:border-sky-400 hover:text-sky-600 transition">Portfolio en Behance (opcional)</a>
-          <!-- Enlace a CV en PDF (colocalo en la misma carpeta como cv.pdf) -->
-          <a href="cv.pdf" download class="rounded-2xl bg-sky-600 text-white px-5 py-2.5 font-semibold hover:bg-sky-700 transition">Descargar CV (PDF)</a>
-        </div>
+  <!-- Redes & CV -->
+    <section id="redes" class="py-20 px-4 bg-darkpanel">
+      <h3 class="text-3xl font-bold text-primary text-center mb-6">Redes & CV</h3>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="https://github.com/tuusuario" target="_blank" class="px-4 py-2 border border-gray-700 rounded-2xl hover:border-primary hover:text-primary transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/tuusuario" target="_blank" class="px-4 py-2 border border-gray-700 rounded-2xl hover:border-primary hover:text-primary transition">LinkedIn</a>
+        <a href="cv.pdf" download class="bg-primary text-darkbg px-5 py-2.5 rounded-2xl font-semibold hover:bg-orange-600 transition">Descargar CV</a>
       </div>
     </section>
   </main>
 
-  <!-- ===== Pie de página ===== -->
-  <footer class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-3">
-    <p>© <span id="year"></span> Tu Nombre. Todos los derechos reservados.</p>
-    <div class="flex items-center gap-4">
-      <button id="btnTheme" class="rounded-xl border border-slate-300 dark:border-slate-700 px-3 py-1.5">Tema: <span id="themeLabel">Auto</span></button>
-      <a href="#inicio" class="hover:text-sky-600">Volver arriba ↑</a>
+  <!-- Footer -->
+  <footer class="bg-darkpanel border-t border-gray-700 mt-20">
+    <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-400 text-sm">&copy; 2025 Lucas Paupie. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- ===== JavaScript básico ===== -->
   <script>
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Menú móvil
+    // Código para el menú móvil
     const btnMenu = document.getElementById('btnMenu');
     const mobileNav = document.getElementById('mobileNav');
-    btnMenu?.addEventListener('click', () => {
+    const navLinks = document.querySelectorAll('#mobileNav a');
+
+    btnMenu.addEventListener('click', () => {
       mobileNav.classList.toggle('hidden');
     });
 
-    // Validación simple del formulario (demo)
-    const form = document.getElementById('formContacto');
-    const ok = document.getElementById('formOk');
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let valid = true;
-
-      const nombre = form.nombre;
-      const email = form.email;
-      const mensaje = form.mensaje;
-
-      // Helpers
-      const showError = (key, show) => {
-        const p = form.querySelector(`[data-error="${key}"]`);
-        if (p) p.classList.toggle('hidden', !show);
-      };
-
-      // Nombre
-      if (!nombre.value.trim()) { valid = false; showError('nombre', true); }
-      else showError('nombre', false);
-
-      // Email rudimentario
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
-      if (!emailOk) { valid = false; showError('email', true); }
-      else showError('email', false);
-
-      // Mensaje
-      if (!mensaje.value.trim()) { valid = false; showError('mensaje', true); }
-      else showError('mensaje', false);
-
-      if (valid) {
-        ok?.classList.remove('hidden');
-        form.reset();
-      }
-    });
-
-    // Modo oscuro/claro (toggle manual + preferencia)
-    const btnTheme = document.getElementById('btnTheme');
-    const themeLabel = document.getElementById('themeLabel');
-
-    const applyTheme = (t) => {
-      const root = document.documentElement;
-      if (t === 'dark') { root.classList.add('dark'); themeLabel.textContent = 'Oscuro'; }
-      else if (t === 'light') { root.classList.remove('dark'); themeLabel.textContent = 'Claro'; }
-      else { // auto
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) { root.classList.add('dark'); themeLabel.textContent = 'Auto (Oscuro)'; }
-        else { root.classList.remove('dark'); themeLabel.textContent = 'Auto (Claro)'; }
-      }
-    };
-
-    let theme = localStorage.getItem('theme') || 'auto';
-    applyTheme(theme);
-
-    btnTheme?.addEventListener('click', () => {
-      theme = theme === 'auto' ? 'dark' : theme === 'dark' ? 'light' : 'auto';
-      localStorage.setItem('theme', theme);
-      applyTheme(theme);
-    });
-
-    // Scroll suave adicional para navegadores sin soporte (la clase scroll-smooth ya ayuda)
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (id && id.length > 1) {
-          const el = document.querySelector(id);
-          if (el) {
-            e.preventDefault();
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Cerrar menú móvil al navegar
-            mobileNav?.classList.add('hidden');
-          }
-        }
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.add('hidden');
       });
     });
+
+    // Código para el formulario de contacto
+    const formContacto = document.getElementById('formContacto');
+    const formOk = document.getElementById('formOk');
+
+    formContacto.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (formContacto.checkValidity()) {
+        formOk.classList.remove('hidden');
+        formContacto.reset();
+        setTimeout(() => {
+          formOk.classList.add('hidden');
+        }, 3000);
+      }
+    });
   </script>
+
 </body>
 </html>
